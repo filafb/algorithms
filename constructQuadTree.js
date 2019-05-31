@@ -7,6 +7,7 @@
 // If you want to know more about the quad tree, you can refer to its wiki => https://en.wikipedia.org/wiki/Quadtree
 
 // Definition for a QuadTree node.
+console.log(9 / 8 - 1)
 function Node(val, isLeaf, topLeft, topRight, bottomLeft, bottomRight) {
   this.val = val;
   this.isLeaf = isLeaf;
@@ -21,7 +22,38 @@ function Node(val, isLeaf, topLeft, topRight, bottomLeft, bottomRight) {
 */
 
 const construct = function (grid) {
+  //1. test if grid is leaf or not (all values are the same)
+  //2. Base case either,
+    // grid.length === 1 or,
+    // grid is leaf
+    // returns => new Node(!!grid[0][0], true, null, null, null, null)
+  //3. recursive case:
+  //4. Break the grid in 4 smaller grids
+  //5. return new Node('*', isLeaf, construct(newGrid[0], construct(newGrid[1], construct(newGrid[2], construct(newGrid[3]))
 
 };
+
+/**
+* @param {number[][]} grid
+* @return {boolean}
+*/
+
+const isLeaf = function (grid) {
+  //1. find value for the first element
+  // forEach array in he grid, loop over its value. When different than first value, return false
+  // else return true
+
+}
+
+const breakGrid = function (grid) {
+  // create an array 4 x 4
+  // Find the size of the grid
+  // divide by 2 = x
+  // loop over it, checking if the value / x for col and row.
+  // if col is negative, its in the left. If row is negative, its in the top. Push current value to the right array
+  // return the array crated
+
+
+}
 
 module.exports = construct
