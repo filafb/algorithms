@@ -7,4 +7,5 @@ Date | Algo | Attempt | Status | Redo?
 05/30 | Valid Anagram | 1️⃣ | ✅ | no
 05/31 | Construct Quad Tree | 1️⃣ | ❌ | yes
 06/03 | Valid Palindrome | 1️⃣ | ❌ | yes
+06/04 | Robot Return to Origin | 1️⃣ | ✅ | no
 
