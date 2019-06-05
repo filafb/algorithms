@@ -7,7 +7,6 @@
 // If you want to know more about the quad tree, you can refer to its wiki => https://en.wikipedia.org/wiki/Quadtree
 
 // Definition for a QuadTree node.
-console.log(9 / 8 - 1)
 function Node(val, isLeaf, topLeft, topRight, bottomLeft, bottomRight) {
   this.val = val;
   this.isLeaf = isLeaf;
