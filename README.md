@@ -9,4 +9,4 @@ Date | Algo | Attempt | Status | Redo?
 06/03 | Valid Palindrome | 1️⃣ | ❌ | yes
 06/04 | Robot Return to Origin | 1️⃣ | ✅ | no
 06/05 | Count Binary Substring | 1️⃣ | ❌ | yes
-
+06/06 | Count Binary Substring | 2️⃣ | ✅ | no
