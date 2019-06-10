@@ -12,3 +12,4 @@ Date | Algo | Attempt | Status | Redo?
 06/06 | Count Binary Substring | 2️⃣ | ✅ | no
 06/07 | Merge Binary Tree | 1️⃣ | ✅ | no
 06/08 | Binary Search Tree Validation | 1️⃣ | ✅ | no
+06/10 | Minimum Height Trees | 1️⃣ | ❌ | yes
