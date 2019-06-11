@@ -13,3 +13,6 @@ Date | Algo | Attempt | Status | Redo?
 06/07 | Merge Binary Tree | 1️⃣ | ✅ | no
 06/08 | Binary Search Tree Validation | 1️⃣ | ✅ | no
 06/10 | Minimum Height Trees | 1️⃣ | ❌ | yes
+06/11 | Search BST | 1️⃣ | ✅ | no
+extra | Calculator
+extra | Objectify URL Query
