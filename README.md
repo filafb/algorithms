@@ -16,3 +16,4 @@ Date | Algo | Attempt | Status | Redo?
 06/11 | Search BST | 1️⃣ | ✅ | no
 extra | Calculator
 extra | Objectify URL Query
+06/12 | Pow | 1️⃣ | ❌ | yes
