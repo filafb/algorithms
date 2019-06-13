@@ -17,3 +17,4 @@ Date | Algo | Attempt | Status | Redo?
 extra | Calculator
 extra | Objectify URL Query
 06/12 | Pow | 1️⃣ | ❌ | yes
+06/13 | Time Based Key-Value Store | 1️⃣ | ✅ | no
