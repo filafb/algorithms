@@ -18,3 +18,4 @@ extra | Calculator
 extra | Objectify URL Query
 06/12 | Pow | 1️⃣ | ❌ | yes
 06/13 | Time Based Key-Value Store | 1️⃣ | ✅ | no
+06/14 | Smallest Subtree with all the Deepest Nodes |  1️⃣ | ❌ | yes
