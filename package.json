@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/filafb/algorithms#readme",
   "dependencies": {
-    "jest": "^24.8.0"
+    "jest": "^24.8.0",
+    "sinon": "^7.3.2"
   }
 }
