@@ -20,3 +20,4 @@ extra | Objectify URL Query
 06/13 | Time Based Key-Value Store | 1️⃣ | ✅ | no
 06/14 | Smallest Subtree with all the Deepest Nodes |  1️⃣ | ❌ | yes
 extra | Revert String Recursively
+06/17 | Zig Zag Conversion | 1️⃣ | ✅ | yes
