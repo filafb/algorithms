@@ -3,6 +3,12 @@
 //Given a string S and a string T, find the minimum window in S which will contain all the characters in T in complexity O(n).
 
 //time: O(s * t) t = number of unique char in t //space: O(t)
+/**
+ * make time O(s + t) = slide window.
+ * Make a left and right pointer
+ * right pointer moves until we reach deserible window.
+ * Then, we start moving left window. if we still have a desirable window, replace. if not, move left to right, update the tMap.
+ */
 function minWindow(s,t) {
   if(t.length === 1){
     return s.includes(t) ? t : ""
