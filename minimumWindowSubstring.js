@@ -2,7 +2,7 @@
 
 //Given a string S and a string T, find the minimum window in S which will contain all the characters in T in complexity O(n).
 
-//time: O(s * t) //space: O(t)
+//time: O(s * t) t = number of unique char in t //space: O(t)
 function minWindow(s,t) {
   if(t.length === 1){
     return s.includes(t) ? t : ""
