@@ -1,3 +1,4 @@
+/* eslint-disable complexity */
 //source: https://leetcode.com/problems/minimum-window-substring/submissions/
 
 //Given a string S and a string T, find the minimum window in S which will contain all the characters in T in complexity O(n).
@@ -9,6 +10,45 @@
  * right pointer moves until we reach deserible window.
  * Then, we start moving left window. if we still have a desirable window, replace. if not, move left to right, update the tMap.
  */
+
+function minWindowOp(s,t) {
+  if(t.length === 1){
+    return s.includes(t) ? t : ""
+  }
+  if(t.length > s.length || !t) return ""
+  let indexes = [ 0, +Infinity];
+  let left = 0;
+  let right = 0;
+  let tMap = {};
+  let tNumChar = 0;
+  for(let i = 0; i < t.length; i++) {
+    if(tMap[t[i]]) {
+      tMap[t[i]]++
+    } else {
+      tMap[t[i]] = 1;
+      tNumChar++;
+    }
+  }
+  while(left <= (s.length - t.length) && right < s.length) {
+    if(typeof tMap[s[right]] !== 'undefined') {
+      tMap[s[right]]--
+      tNumChar = tMap[s[right]] === 0 ? --tNumChar : tNumChar
+    }
+    if(tMap[s[right]] < 1) {
+      while(tNumChar === 0 && left < right) {
+        indexes = right - left < indexes[1] - indexes[0] ? [left, right] : indexes;
+        if(typeof tMap[s[left]] !== 'undefined') {
+          tMap[s[left]]++;
+          tNumChar = tMap[s[left]] < 1 ? tNumChar : ++tNumChar
+        }
+        left++;
+      }
+    }
+    right++;
+  }
+  return indexes[1] === +Infinity ? "" : s.substring(indexes[0], indexes[1]+1)
+}
+
 function minWindow(s,t) {
   if(t.length === 1){
     return s.includes(t) ? t : ""
@@ -66,4 +106,4 @@ function minWindow(s,t) {
   return substring
 }
 
-module.exports = minWindow
+module.exports = minWindowOp
