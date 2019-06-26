@@ -22,3 +22,5 @@ extra | Objectify URL Query
 extra | Revert String Recursively
 06/17 | Zig Zag Conversion | 1️⃣ | ✅ | yes
 06/18 | Minimum Window Substring | 1️⃣ | ✅ | yes
+06/24 | Minimum Window Substring | 2️⃣ | ✅ | no
+06/26 | Search Matrix 2D | 1️⃣ | ❌ | yes
