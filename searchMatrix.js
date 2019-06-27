@@ -6,6 +6,8 @@
 //The first integer of each row is greater than the last integer of the previous row.
 
 
+//time: O(log r + log c) r = number of arrays (rows) c = number of items inside each array (columns)
+//space: O(1)
 // eslint-disable-next-line complexity
 function searchMatrix(matrix, target) {
   let foundArray = false;
@@ -13,8 +15,8 @@ function searchMatrix(matrix, target) {
   let rightMatrix = matrix.length - 1;
   let middleMatrix;
   //loop over rows, performing bst
-  while (!foundArray && leftMatrix < rightMatrix) {
-    middleMatrix = Math.floor((rightMatrix - leftMatrix) / 2);
+  while (!foundArray && leftMatrix <= rightMatrix) {
+    middleMatrix = Math.floor((rightMatrix + leftMatrix) / 2);
     let currentArray = matrix[middleMatrix];
     //finding a value in the head or tail, return true
     if (currentArray[0] === target || currentArray[currentArray.length - 1] === target) return true;
@@ -38,8 +40,8 @@ function searchMatrix(matrix, target) {
   let left = 0;
   let right = targetArray.length - 1;
   let middle;
-  while(left < right) {
-    middle = Math.floor((right - left) /2);
+  while(left <= right) {
+    middle = Math.floor((right + left) /2);
     if(targetArray[middle] === target) return true;
     if(targetArray[middle] > target) {
       right = middle -1 ;
@@ -47,13 +49,24 @@ function searchMatrix(matrix, target) {
       left = middle + 1;
     }
   }
-  return true
+  return false
 }
-let matrix = [
-  [1,   3,  5,  7],
-  [10, 11, 16, 20],
-  [23, 30, 34, 50]
-]
-console.log(searchMatrix(matrix, 13))
 
 module.exports = searchMatrix;
+
+function bs(arr, t) {
+  let right = arr.length -1;
+  let left = 0;
+  let mid;
+  while(left <= right) {
+    mid = Math.floor((right + left) / 2 );
+    if(arr[mid] === t) return true;
+    if(arr[mid] > t) {
+      right = mid - 1;
+    } else {
+      left = mid + 1
+    }
+  }
+  return false
+}
+

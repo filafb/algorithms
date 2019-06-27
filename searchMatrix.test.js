@@ -10,5 +10,7 @@ describe('search Matrix', () => {
   it('search for a target value in a 2D array', () => {
     expect(searchMatrix(matrix, 3)).toBeTruthy();
     expect(searchMatrix(matrix, 13)).toBeFalsy();
+    expect(searchMatrix(matrix, 34)).toBeTruthy();
+    expect(searchMatrix(matrix, 55)).toBeFalsy();
   })
 })
