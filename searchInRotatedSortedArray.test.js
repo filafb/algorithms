@@ -7,7 +7,9 @@ const rotate = (arr, rotations) => {
 
 describe('search', () => {
   test('finds the index in a rotated array', () => {
-    expect(search([4,5,6,7,0,1,2],0)).toEqual(4)
+    expect(search([4,5,6,7,0,1,2],0)).toEqual(4);
+    expect(search([1,3,5],5)).toEqual(2);
+    expect(search([3,1],3)).toEqual(0);
   });
 
   test('return -1 if array doesnt contain target', () => {
