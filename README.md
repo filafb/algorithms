@@ -25,3 +25,4 @@ extra | Revert String Recursively
 06/24 | Minimum Window Substring | 2️⃣ | ✅ | no
 06/26 | Search Matrix 2D | 1️⃣ | ❌ | yes
 06/27 | Search Matrix 2D | 2️⃣ | ✅ | no
+06/28 | Search in Rotated sorted Array | 2️⃣ | ✅ | no
