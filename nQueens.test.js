@@ -1,0 +1,1 @@
+const solveNQueens = require('./nQueens')
