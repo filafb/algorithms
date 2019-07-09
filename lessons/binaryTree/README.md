@@ -27,7 +27,7 @@ Traversing: [3, 1, 2, 4, 7, 5, 6,9 ,8 ,10]
  2. Visit the root;
  3. Traverse the right subtree
 
-Traversing: [2, 1, 7, 4, 3, 6, 9, 5, 8, 10]
+Traversing: [2, 1, 7, 4, 3, 6, 9, 5, 10, 8]
 
 * For `Binary Search Tree` we can use `in-order traversal` to retrieve all the data in sorted order
 
