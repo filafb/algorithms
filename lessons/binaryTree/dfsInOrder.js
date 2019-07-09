@@ -26,3 +26,14 @@ var inorderTraversal = function(root) {
   return result
 };
 console.log(inorderTraversal(node1))
+
+var inOrderTraversalRec = function(root) {
+  let result = []
+  if(root) {
+    result = [...result, ...inOrderTraversalRec(root.left)]
+    result.push((root.val))
+    result = [...result, ...inOrderTraversalRec(root.right)]
+  }
+  return result
+}
+console.log(inOrderTraversalRec(node1))
