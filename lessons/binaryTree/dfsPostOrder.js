@@ -48,30 +48,4 @@ var postorderTraversalRec = function(root) {
   return result
 }
 
-
-function TreeNode (val) {
-  this.val = val;
-  this.left = this.right = null
-}
-let node1 = new TreeNode(1)
-let node2 = new TreeNode(2)
-let node3 = new TreeNode(3)
-let node4 = new TreeNode(4)
-let node5 = new TreeNode(5)
-let node6 = new TreeNode(6)
-let node7 = new TreeNode(7)
-let node8 = new TreeNode(8)
-let node9 = new TreeNode(9)
-let node10 = new TreeNode(10)
-
-node3.left = node1
-node1.left = node2
-node1.right = node4
-node4.left = node7
-node3.right = node5
-node5.left = node6
-node6.right = node9
-node5.right = node8
-node8.left = node10
-
-console.log(postorderTraversalRec(node3))
+module.exports = {postorderTraversal, postorderTraversalRec}

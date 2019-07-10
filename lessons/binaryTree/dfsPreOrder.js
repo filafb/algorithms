@@ -1,5 +1,5 @@
 //source: https://leetcode.com/problems/binary-tree-preorder-traversal/
-var preorderTraversalIteratively = function(root) {
+var preorderTraversal = function(root) {
   let result = [];
   let node = root;
   let stack = []
@@ -15,17 +15,6 @@ var preorderTraversalIteratively = function(root) {
   return result
 };
 
-function TreeNode (val) {
-  this.val = val;
-  this.left = this.right = null
-}
-
-let node1 = new TreeNode(1)
-let node2 = new TreeNode(2)
-let node3 = new TreeNode(3)
-node1.right = node2
-node2.left = node3
-
 var preorderTraversalRecursive= function(root) {
   let result = [];
   if(root) {
@@ -37,4 +26,4 @@ var preorderTraversalRecursive= function(root) {
   return result
 };
 
-console.log(preorderTraversalRecursive(node1))
+module.exports = {preorderTraversal, preorderTraversalRecursive}
