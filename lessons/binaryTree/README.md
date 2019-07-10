@@ -38,6 +38,6 @@ Traversing: [2, 1, 7, 4, 3, 6, 9, 5, 10, 8]
 
 Traversing: [2,7,4,1,9,6,10,8,5,3]
 
-* Deleting nodes in a tree, deletion process qill be in post-order, which means delete its left child and its right child before delete the node itself
+* Deleting nodes in a tree, deletion process will be in post-order, which means delete its left child and its right child before delete the node itself
 * Post-order is also used in mathematical expressions
 
