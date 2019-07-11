@@ -41,3 +41,30 @@ Traversing: [2,7,4,1,9,6,10,8,5,3]
 * Deleting nodes in a tree, deletion process will be in post-order, which means delete its left child and its right child before delete the node itself
 * Post-order is also used in mathematical expressions
 
+### Level-order Traversal - Breadth-First Search
+  * Traverse the tree level by level.
+
+Traversing: [3,1,5,2,4,6,8,7,9,10]
+
+## Solve Tree problems Recursively
+
+### Top-down solution
+  * Visit the node first to come up with some values, and __pass these values__ to its children
+  * topDown(root, params)
+
+  * Pseudo code:
+    1. return specific value for null node;
+    2. update the answer if needed;
+    3. leftAnswer = topDown(root.left, leftParams)
+    4. rightAnswer = topDown(root.right, rightParams)
+    5. return the answer if needed
+
+### Bottom-up solution
+  * Call the functions for all the children node and then come up with the answer
+  * bottomUp(root)
+
+  * Pseudo code:
+    1. return specific value for null node;
+    2. leftAnswer = bottomUp(root.left);
+    3. rightAnswer = bottomUp(root.right);
+    4. return answer
