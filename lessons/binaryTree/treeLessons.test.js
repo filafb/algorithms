@@ -1,6 +1,8 @@
 const {inorderTraversal, inOrderTraversalRec } = require('./dfsInOrder');
 const { preorderTraversal, preorderTraversalRecursive} = require('./dfsPreOrder');
 const {postorderTraversal, postorderTraversalRec} = require('./dfsPostOrder')
+const { levelOrder } = require('./bfs')
+
 
 function TreeNode (val) {
   this.val = val;
@@ -38,6 +40,8 @@ let inOrderOne = [2, 1, 7, 4, 3, 6, 9, 5, 10, 8]
 let inOrderTwo = [1,3,2]
 let postOrderOne = [2,7,4,1,9,6,10,8,5,3]
 let postOrderTwo = [3,2,1]
+let dfsOne = [[3],[1,5],[2,4,6,8],[7,9,10]]
+let dfsTwo = [[1],[2],[3]]
 
 
 describe('pre Order traversal', () => {
@@ -78,3 +82,10 @@ describe('post order traversal', () => {
     })
   })
 })
+
+describe('Breadth-First search', () => {
+  it('traverse the tree level by level', () => {
+    expect(levelOrder(node3)).toEqual(dfsOne)
+    expect(levelOrder(nodeOne)).toEqual(dfsTwo)
+  })
+} )
