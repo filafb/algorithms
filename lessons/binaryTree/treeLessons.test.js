@@ -1,10 +1,10 @@
-const {inorderTraversal, inOrderTraversalRec } = require('./dfsInOrder');
-const { preorderTraversal, preorderTraversalRecursive} = require('./dfsPreOrder');
-const {postorderTraversal, postorderTraversalRec} = require('./dfsPostOrder')
+const { inorderTraversal, inOrderTraversalRec } = require('./dfsInOrder');
+const { preorderTraversal, preorderTraversalRecursive } = require('./dfsPreOrder');
+const { postorderTraversal, postorderTraversalRec } = require('./dfsPostOrder')
 const { levelOrder } = require('./bfs')
+const { maxDepth, maxDepthTopDown } = require('./maxDepth')
 
-
-function TreeNode (val) {
+function TreeNode(val) {
   this.val = val;
   this.left = this.right = null
 }
@@ -35,17 +35,17 @@ node5.right = node8
 node8.left = node10
 
 let preOrderOne = [3, 1, 2, 4, 7, 5, 6, 9, 8, 10]
-let preOrderTwo = [1,2,3]
+let preOrderTwo = [1, 2, 3]
 let inOrderOne = [2, 1, 7, 4, 3, 6, 9, 5, 10, 8]
-let inOrderTwo = [1,3,2]
-let postOrderOne = [2,7,4,1,9,6,10,8,5,3]
-let postOrderTwo = [3,2,1]
-let dfsOne = [[3],[1,5],[2,4,6,8],[7,9,10]]
-let dfsTwo = [[1],[2],[3]]
+let inOrderTwo = [1, 3, 2]
+let postOrderOne = [2, 7, 4, 1, 9, 6, 10, 8, 5, 3]
+let postOrderTwo = [3, 2, 1]
+let dfsOne = [[3], [1, 5], [2, 4, 6, 8], [7, 9, 10]]
+let dfsTwo = [[1], [2], [3]]
 
 
 describe('pre Order traversal', () => {
-  describe('visit the root first, traverse the left subtree, and then the right subtree',() => {
+  describe('visit the root first, traverse the left subtree, and then the right subtree', () => {
     it('works iteratively', () => {
       expect(preorderTraversal(node3)).toEqual(preOrderOne)
       expect(preorderTraversal(nodeOne)).toEqual(preOrderTwo)
@@ -88,4 +88,20 @@ describe('Breadth-First search', () => {
     expect(levelOrder(node3)).toEqual(dfsOne)
     expect(levelOrder(nodeOne)).toEqual(dfsTwo)
   })
-} )
+})
+
+
+describe('max Depth', () => {
+  describe('recursively calculates the tree depth', () => {
+    let maxDepthOne = 4
+    let maxDepthTwo = 3
+    it('bottomUp', () => {
+      expect(maxDepth(node3)).toEqual(maxDepthOne)
+      expect(maxDepthTopDown(nodeOne)).toEqual(maxDepthTwo)
+    })
+    it('and TopDown', () => {
+      expect(maxDepth(node3)).toEqual(maxDepthOne)
+      expect(maxDepthTopDown(nodeOne)).toEqual(maxDepthTwo)
+    })
+  })
+})
