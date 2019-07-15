@@ -3,6 +3,7 @@ const { preorderTraversal, preorderTraversalRecursive } = require('./dfsPreOrder
 const { postorderTraversal, postorderTraversalRec } = require('./dfsPostOrder')
 const { levelOrder } = require('./bfs')
 const { maxDepth, maxDepthTopDown } = require('./maxDepth')
+const {isSymmetric, isSymmetricRec} = require('./symmetricTree')
 
 function TreeNode(val) {
   this.val = val;
@@ -22,6 +23,7 @@ let nodeOne = new TreeNode(1)
 let nodeTwo = new TreeNode(2)
 let nodeThree = new TreeNode(3)
 
+
 nodeOne.right = nodeTwo
 nodeTwo.left = nodeThree
 node3.left = node1
@@ -34,18 +36,11 @@ node6.right = node9
 node5.right = node8
 node8.left = node10
 
-let preOrderOne = [3, 1, 2, 4, 7, 5, 6, 9, 8, 10]
-let preOrderTwo = [1, 2, 3]
-let inOrderOne = [2, 1, 7, 4, 3, 6, 9, 5, 10, 8]
-let inOrderTwo = [1, 3, 2]
-let postOrderOne = [2, 7, 4, 1, 9, 6, 10, 8, 5, 3]
-let postOrderTwo = [3, 2, 1]
-let dfsOne = [[3], [1, 5], [2, 4, 6, 8], [7, 9, 10]]
-let dfsTwo = [[1], [2], [3]]
-
 
 describe('pre Order traversal', () => {
   describe('visit the root first, traverse the left subtree, and then the right subtree', () => {
+    let preOrderOne = [3, 1, 2, 4, 7, 5, 6, 9, 8, 10]
+    let preOrderTwo = [1, 2, 3]
     it('works iteratively', () => {
       expect(preorderTraversal(node3)).toEqual(preOrderOne)
       expect(preorderTraversal(nodeOne)).toEqual(preOrderTwo)
@@ -59,6 +54,8 @@ describe('pre Order traversal', () => {
 
 describe('in order traversal', () => {
   describe('traverse the left subtree, visit root, than traverse the right tree', () => {
+    let inOrderOne = [2, 1, 7, 4, 3, 6, 9, 5, 10, 8]
+    let inOrderTwo = [1, 3, 2]
     it('works iteratively', () => {
       expect(inorderTraversal(node3)).toEqual(inOrderOne)
       expect(inorderTraversal(nodeOne)).toEqual(inOrderTwo)
@@ -72,6 +69,8 @@ describe('in order traversal', () => {
 
 describe('post order traversal', () => {
   describe('traverse the left subtree, traverse the right tree, than visit the root', () => {
+    let postOrderOne = [2, 7, 4, 1, 9, 6, 10, 8, 5, 3]
+    let postOrderTwo = [3, 2, 1]
     it('works iteratively', () => {
       expect(postorderTraversal(node3)).toEqual(postOrderOne)
       expect(postorderTraversal(nodeOne)).toEqual(postOrderTwo)
@@ -84,6 +83,8 @@ describe('post order traversal', () => {
 })
 
 describe('Breadth-First search', () => {
+  let dfsOne = [[3], [1, 5], [2, 4, 6, 8], [7, 9, 10]]
+  let dfsTwo = [[1], [2], [3]]
   it('traverse the tree level by level', () => {
     expect(levelOrder(node3)).toEqual(dfsOne)
     expect(levelOrder(nodeOne)).toEqual(dfsTwo)
@@ -102,6 +103,36 @@ describe('max Depth', () => {
     it('and TopDown', () => {
       expect(maxDepth(node3)).toEqual(maxDepthOne)
       expect(maxDepthTopDown(nodeOne)).toEqual(maxDepthTwo)
+    })
+  })
+})
+
+describe('is Symmetric', () => {
+  describe('evaluate whether a tree is symetric or not', () => {
+    isSymmetricRec
+    it('works iteratively and recursively', () => {
+      let newNode1 = new TreeNode(1)
+      let newNode2 = new TreeNode(2)
+      let newNode3 = new TreeNode(3)
+      let newNode4 = new TreeNode(4)
+      newNode1.left = {...newNode2}
+      expect(isSymmetric(newNode1)).toBeFalsy();
+      expect(isSymmetricRec(newNode1)).toBeFalsy();
+      newNode1.right = {...newNode2}
+      expect(isSymmetric(newNode1)).toBeTruthy();
+      expect(isSymmetricRec(newNode1)).toBeTruthy();
+      newNode1.left.left = {...newNode4}
+      expect(isSymmetric(newNode1)).toBeFalsy();
+      expect(isSymmetricRec(newNode1)).toBeFalsy();
+      newNode1.right.right = {...newNode4}
+      expect(isSymmetric(newNode1)).toBeTruthy();
+      expect(isSymmetricRec(newNode1)).toBeTruthy();
+      newNode1.left.right = {...newNode3}
+      expect(isSymmetric(newNode1)).toBeFalsy();
+      expect(isSymmetricRec(newNode1)).toBeFalsy();
+      newNode1.right.left = {...newNode3}
+      expect(isSymmetric(newNode1)).toBeTruthy();
+      expect(isSymmetricRec(newNode1)).toBeTruthy();
     })
   })
 })
