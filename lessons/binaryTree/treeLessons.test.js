@@ -109,7 +109,6 @@ describe('max Depth', () => {
 
 describe('is Symmetric', () => {
   describe('evaluate whether a tree is symetric or not', () => {
-    isSymmetricRec
     it('works iteratively and recursively', () => {
       let newNode1 = new TreeNode(1)
       let newNode2 = new TreeNode(2)
