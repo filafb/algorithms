@@ -3,7 +3,8 @@ const { preorderTraversal, preorderTraversalRecursive } = require('./dfsPreOrder
 const { postorderTraversal, postorderTraversalRec } = require('./dfsPostOrder')
 const { levelOrder } = require('./bfs')
 const { maxDepth, maxDepthTopDown } = require('./maxDepth')
-const {isSymmetric, isSymmetricRec} = require('./symmetricTree')
+const {isSymmetric, isSymmetricRec} = require('./symmetricTree');
+const hasPathSum = require('./pathSum')
 
 function TreeNode(val) {
   this.val = val;
@@ -133,5 +134,16 @@ describe('is Symmetric', () => {
       expect(isSymmetric(newNode1)).toBeTruthy();
       expect(isSymmetricRec(newNode1)).toBeTruthy();
     })
+  })
+})
+
+describe('path sum', () => {
+  it('evaluates whether a tree has a root-to-leaf path that adds up a given target value', () => {
+    expect(hasPathSum(node3, 6)).toBeTruthy();
+    expect(hasPathSum(node3, 26)).toBeTruthy();
+    expect(hasPathSum(node3, 8)).toBeFalsy();
+    node2.right = -10
+    expect(hasPathSum(node3, -4)).toBeTruthy();
+    expect(hasPathSum(nodeOne, 1)).toBeFalsy();
   })
 })
