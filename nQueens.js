@@ -26,8 +26,21 @@
  * @return {string[][]}
  */
 var solveNQueens = function(n) {
+  let board = createABoard(n)
+  return solver(board, 0, n)
 
 };
+console.log(solveNQueens(4))
+
+function createABoard(n) {
+  let row = new Array(n).fill('.')
+  let board = []
+  for(let i = 0; i < n; i++) {
+    board.push([...row])
+  }
+  return board
+}
+
 
 /**
  *
@@ -36,57 +49,47 @@ var solveNQueens = function(n) {
  * @param {number} n
  * @return {false || board}
  */
-//the problem ask for all solutions. Will have to change the base case and the return statement
-function solver(board, column, n) {
+
+function solver(board, column, n, results = [], positions = []) {
   //base case
   if(column === n) {
     //this mean we reached the last column after validating all others as safe position for a Queen.
-    return true
+    results.push([...board])
+    return results
   }
   // for each row, we will try to position the Queen in n posible positions
   for(let row = 0; row < n; row++) {
     //before positioning a Queen at column and row, we check if it's valid.
-    if(checkSafety(row, column, board)) {
+    if(checkSafety(row, positions)) {
+      positions.push(row)
       //if the position is safe, we place queen there, and move to check the next column, using the new board as starting point
       board[row][column] = 'Q';
-      let explore = solver(board, ++column, n)
-      //if we reach column === n (base case), function will return true
-      if(explore) {
-        console.log(explore) //should be true first time, then the board
-        // and then we can return the board to the main caller
-        return board
-      }
-      //if a function exit in the checkSafety and complete the for loop, we remove the Queen and keep the loop of the next row.
+      //we explore this scnerario. It always return a new result array. If reach n === column, the board is added to the results. If not, return the current one.
+      results = solver(board, column+1, n, results, positions)
+      //for all cases, we remove the Queen and explore new alternatives
+      positions.pop()
       board[row][column] = '.'
     }
     //if the position is not valid, we loop to the next row
   }
-  return false
+  return results
 }
 /**
  *
  * @param {number} row
- * @param {number} column
- * @param {string[][]} board
+ * @param {string[]} positions
  * @return {boolean}
  */
-function checkSafety(row, column, board) {
-  //check if we can place a queen in this position
+function checkSafety(row, positions) {
+  const column = positions.length
+  for(let i = 0; i < column; i++) {
+    if(row === positions[i]) return false
+    let place = column - i
+    if(row === positions[i] + place || row === positions[i] - place) return false
+  }
+  return true
 }
-
-//Callstack representation
-                                                                            //solver(board,3,4) -> fail: 3x0,3x1,3x2,3x3 exit
-        //solver(board,2,4) -> fail: 2x0,2x1,2x2, 2x3 exit function       solver(board,2,4) -> fail: 2x0 -> sucess: 2x1      solver(board,2,4) -> fail: 2x2,2x3 exit
-    //solver(board,1,4) -> fail: 1x0,1x1  -> success: 1x2              solver(board,1,4) -> sucess: 1x3                            solver(board,1,4) exit
-//solver(board, 0,4) sucess: 0x0                                                                                                          solver(board,0,4)
-
-
-              //solver(board,4,4) -> return true
-          //solver(board, 3, 4) -> fail: 3x0, 3x1 sucess 3x2  -> return board
-        //solver(board, 2,4) -> sucess: 2x0                     -> return board
-    //solver(board, 1, 4) -> fails: 1x0, 1x1, 1x2 sucess 1x3      -> return board
-//solver(board,0,4) sucess: 0x1                                     -> return board
-
+console.log(checkSafety(2, [1,3,0]))
 
 
 
