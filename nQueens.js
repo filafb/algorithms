@@ -30,7 +30,6 @@ var solveNQueens = function(n) {
   return solver(board, 0, n)
 
 };
-console.log(solveNQueens(4))
 
 function createABoard(n) {
   let row = new Array(n).fill('.')
@@ -40,7 +39,6 @@ function createABoard(n) {
   }
   return board
 }
-
 
 /**
  *
@@ -54,7 +52,8 @@ function solver(board, column, n, results = [], positions = []) {
   //base case
   if(column === n) {
     //this mean we reached the last column after validating all others as safe position for a Queen.
-    results.push([...board])
+    let boardToString = board.map(row => row.join(''))
+    results.push(boardToString)
     return results
   }
   // for each row, we will try to position the Queen in n posible positions
@@ -65,7 +64,7 @@ function solver(board, column, n, results = [], positions = []) {
       //if the position is safe, we place queen there, and move to check the next column, using the new board as starting point
       board[row][column] = 'Q';
       //we explore this scnerario. It always return a new result array. If reach n === column, the board is added to the results. If not, return the current one.
-      results = solver(board, column+1, n, results, positions)
+      solver(board, column+1, n, results, positions)
       //for all cases, we remove the Queen and explore new alternatives
       positions.pop()
       board[row][column] = '.'
@@ -89,7 +88,6 @@ function checkSafety(row, positions) {
   }
   return true
 }
-console.log(checkSafety(2, [1,3,0]))
 
 
 
