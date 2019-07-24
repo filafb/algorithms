@@ -28,3 +28,5 @@ extra | Revert String Recursively
 06/28 | Search in Rotated sorted Array | 2️⃣ | ✅ | no
 07/01 | Reverse Only Letters | 1️⃣ | ✅ | yes
 07/02 | N-queens | 1️⃣ | ❌ | yes
+07/ 08-15| Lessons: Binary Tree
+07/24 | N-queens | 2️⃣ | ✅ | no
