@@ -30,3 +30,4 @@ extra | Revert String Recursively
 07/02 | N-queens | 1️⃣ | ❌ | yes
 07/ 08-15| Lessons: Binary Tree
 07/24 | N-queens | 2️⃣ | ✅ | no
+07/25 | House Robber 3 | 1️⃣ | ❌ | yes
