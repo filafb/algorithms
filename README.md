@@ -32,3 +32,4 @@ extra | Revert String Recursively
 07/24 | N-queens | 2️⃣ | ✅ | no
 07/25 | House Robber 3 | 1️⃣ | ❌ | yes
 07/26 | House Robber 3 | 2️⃣ | ❌ | yes
+07/29 | House Robber 3 | 3️⃣ | ✅ | yes
