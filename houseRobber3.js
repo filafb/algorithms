@@ -23,9 +23,6 @@ var rob = function(root) {
   //naive approach - bad time performance due to to compute root we need root.left, root.right, root.left.left, root.left.right, root.right.left and root.right.right and to compute root.left, we need root.left.left, root.left.right. Same for root.right
   // 1. recursively return the Max between val + grandchildren and child1 + child2
 
-  //How to use hashmap to remember the node already computed? //
-  // a different way to think: always two scenario: root is robbed or not. if its, we are free to rob the grandchildren. if not, we are free to rob the children. Calculate both alternatatives, and then return the max value
-
   //base case:
   if(!root) return 0
   let val = 0;
@@ -41,10 +38,12 @@ var rob = function(root) {
 };
 
 function robMemo(root, map = null) {
+   //How to use hashmap to remember the node already computed? //
   if(!map) {
     map = new Map()
   }
   if(!root) return 0
+  //Memoization part: if we have already found the best case scenario for that node, we don't need to recalculate it.
   if(map.has(root)) {
     return map.get(root)
   }
@@ -55,10 +54,32 @@ function robMemo(root, map = null) {
   if(root.right) {
     val += robMemo(root.right.left, map) + robMemo(root.right.right, map)
   }
+  //we find the highest value to update val. Either root plus grandchildren or children
   val = Math.max(root.val + val, robMemo(root.left, map) + robMemo(root.right, map))
   map.set(root, val)
   return val
 
+}
+
+function robAlt(root) {
+  // a different way to think: always two scenario: root is robbed or not. if its, we are free to rob the grandchildren. if not, we are free to rob the children. Calculate both alternatatives, and then return the max value
+  return Math.max(...robHelper(root))
+}
+
+function robHelper(root) {
+
+  if(!root) return new Array(2).fill(0)
+  let childVal = 0
+  let grandchildVal = 0
+  if(root.left) {
+    childVal += Math.max(...robHelper(root.left))
+    grandchildVal += Math.max(...robHelper(root.left.left)) + Math.max(...robHelper(root.left.right))
+  }
+  if(root.right) {
+    childVal += Math.max(...robHelper(root.right))
+    grandchildVal += Math.max(...robHelper(root.right.left)) + Math.max(...robHelper(root.right.right))
+  }
+  return [root.val + grandchildVal, childVal]
 }
 
 function TreeNode(val) {
@@ -71,6 +92,6 @@ root2.right = new TreeNode(3)
 root2.left.right = new TreeNode(3)
 root2.right.right = new TreeNode(1)
 root2.left.right.left = new TreeNode(4)
-console.log(robMemo(root2))
+console.log(robAlt(root2))
 
-module.exports = { rob, robMemo }
+module.exports = { rob, robMemo, robAlt }

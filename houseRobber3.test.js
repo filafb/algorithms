@@ -1,4 +1,4 @@
-const { rob, robMemo } = require('./houseRobber3')
+const { rob, robMemo, robAlt } = require('./houseRobber3')
 
 function TreeNode(val) {
   this.val = val;
@@ -38,5 +38,13 @@ describe('House Robber', () => {
       root2.left.right.left = new TreeNode(4)
       expect(robMemo(root2)).toEqual(9)
     } )
+    test('does it calculating two alternatives', () => {
+      expect(robAlt(root)).toEqual(10)
+      root.right.left = new TreeNode(2)
+      expect(robAlt(root)).toEqual(11)
+      expect(robAlt(root2)).toEqual(7)
+      root2.left.right.left = new TreeNode(4)
+      expect(robAlt(root2)).toEqual(9)
+    })
   })
 })
