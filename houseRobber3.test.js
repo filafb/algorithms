@@ -16,6 +16,11 @@ root2.right = new TreeNode(3)
 root2.left.right = new TreeNode(3)
 root2.right.right = new TreeNode(1)
 
+let root3 = new TreeNode(2)
+root3.left = new TreeNode(1)
+root3.right = new TreeNode(3)
+root3.left.right = new TreeNode(4)
+
 describe('House Robber', () => {
   describe('calculates the max sum from root to leave in a BT, not allowing two directly-linked nodes beeing summed', () => {
     afterEach(() => {
@@ -29,6 +34,7 @@ describe('House Robber', () => {
       expect(rob(root2)).toEqual(7)
       root2.left.right.left = new TreeNode(4)
       expect(rob(root2)).toEqual(9)
+      expect(rob(root3)).toEqual(7)
     })
     test('does it using memoization, for a O(n) time complexity', () => {
       expect(robMemo(root)).toEqual(10)
@@ -37,6 +43,7 @@ describe('House Robber', () => {
       expect(robMemo(root2)).toEqual(7)
       root2.left.right.left = new TreeNode(4)
       expect(robMemo(root2)).toEqual(9)
+      expect(robMemo(root3)).toEqual(7)
     } )
     test('does it calculating two alternatives', () => {
       expect(robAlt(root)).toEqual(10)
@@ -45,6 +52,7 @@ describe('House Robber', () => {
       expect(robAlt(root2)).toEqual(7)
       root2.left.right.left = new TreeNode(4)
       expect(robAlt(root2)).toEqual(9)
+      expect(robAlt(root3)).toEqual(7)
     })
   })
 })

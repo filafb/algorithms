@@ -67,19 +67,16 @@ function robAlt(root) {
 }
 
 function robHelper(root) {
-
+  //for the base case, we return a basic array [0,0]
   if(!root) return new Array(2).fill(0)
-  let childVal = 0
-  let grandchildVal = 0
-  if(root.left) {
-    childVal += Math.max(...robHelper(root.left))
-    grandchildVal += Math.max(...robHelper(root.left.left)) + Math.max(...robHelper(root.left.right))
-  }
-  if(root.right) {
-    childVal += Math.max(...robHelper(root.right))
-    grandchildVal += Math.max(...robHelper(root.right.left)) + Math.max(...robHelper(root.right.right))
-  }
-  return [root.val + grandchildVal, childVal]
+  let choices = new Array(2)
+  let left = robHelper(root.left)
+  let right = robHelper(root.right)
+  //the first element is a decision between the highist value in the subtree, since we are not picking the root
+  choices[0] = Math.max(...left) + Math.max(...right)
+  //the second element, we pick root, so we cannot pick the children. We pick the max values of their subtree, not including their (children) value
+  choices[1] = root.val + left[0] + right[0]
+  return choices
 }
 
 function TreeNode(val) {
