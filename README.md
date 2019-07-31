@@ -33,4 +33,5 @@ extra | Revert String Recursively
 07/25 | House Robber 3 | 1️⃣ | ❌ | yes
 07/26 | House Robber 3 | 2️⃣ | ❌ | yes
 07/29 | House Robber 3 | 3️⃣ | ✅ | yes
-07/29 | House Robber 3 | 4️⃣ | ✅ | no
+07/30 | House Robber 3 | 4️⃣ | ✅ | no
+07/31 | Jump Game 2 | 1️⃣ | ❌ | yes
