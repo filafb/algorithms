@@ -11,40 +11,35 @@
  * @return {number}
  */
 var jump = function(nums) {
-    /** approach: fail due to time limit
-     * For each step, create a trie holding all posible reach for that position and its children
+    /** approach:
+     * For each step, find the further we can go
      * ie: [2,3,5,1,1,1,1,1] target: index 7
-     * index 0 (2 jumps) we can reach: indexes [1,2]
-     * index 1 (3 jumps) we can reach: tempQueue = indexes [2,3,4] // shift queue: [2]
-     * index 2 (5 jumps) we can reach: tempQueue = indexes [3,4,5,6,7] 7 match target -> return step+1
+     * index 0 (2 jumps) we can reach: indexes [1,2] reach [3,5] => we pick index 2 / reach 5 / update step++
+     * index 2 (5 jumps) we can reach: indexes [3,4,5,6,7] => we return step++
      */
     if(nums.length === 1) return 0
     // 1. create target variable
     const target = nums.length - 1
     // 2. create a variable to count number os steps
     let steps = 0
-    // 3. create a queue and a tempQueue
-    let queue = [0]
-    let tempQueue = []
-    // 4. while queue is not empty, loop over it:
-    while(queue.length) {
-      // 4.1 get position (queue.shift) and reach = nums[position]
-      let position = queue.shift()
-      let reach = nums[position]
-      // 4.2 loop over all reaches that are posible
+    // 3. track current position and possible reach
+    let position = 0
+    let reach = nums[0]
+    // 4. loop over all alternatives. while(true is safe since the problem said it always will have a solution)
+    while(true) {
+      //4.1 track temp position and temp Reach. Here, we are investigating the best scenario (or how further we can move) given the current position and reach
+      let tempPosition = 0
+      let tempReach = 0
       for(let i = reach; i > 0; i--) {
-        // 4.2.1 if position + i >= target return step + 1
-        if(position + i >= target) return steps + 1
-        // 4.2.2 push possible reach to tempQueue
-        tempQueue.unshift(position + i)
+        // investigate all alternatives. just save the best one
+        if(position + i >= target) return steps + 1;
+        [tempPosition, tempReach ] = position + i + nums[position + i] > tempReach + tempPosition ? [position + i, nums[position + i] ] : [tempPosition, tempReach]
       }
-      // 4.3 when queue is empty, update step, update queue with temp and temp with a empty array
-      if(!queue.length) {
-        steps++
-        queue = [...tempQueue]
-        tempQueue = []
-      }
+      // 4.3 when it's done, we update steps (meaning we are moving one level down) and the new position and reach (the further we could go)
+      steps++
+      position = tempPosition
+      reach = tempReach
     }
 };
 
-console.log(jump([2,3,1,1,5,1,5,1,1]))
+module.exports = jump
