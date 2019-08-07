@@ -38,3 +38,4 @@ extra | Revert String Recursively
 08/01 | Jump Game 2 | 2️⃣ | ✅ | no
 08/05 | Middle of the Linked List | 1️⃣ | ✅ | no
 08/06 | Has Groups Size X | 1️⃣ | ❌ | yes
+08/07 | Has Groups Size X | 2️⃣ | ✅ | no
