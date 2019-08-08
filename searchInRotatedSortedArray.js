@@ -47,7 +47,5 @@ function search(nums, target) {
   }
   return -1;
 }
-console.log(search([3,1], 3))
-console.log(search([1,3,5],1))
-console.log(search([3,5,1],1))
+
 module.exports = search
