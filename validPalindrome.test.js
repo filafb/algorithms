@@ -8,7 +8,7 @@ describe('validPalindrome', () => {
     const longString = "aguokepatgbnvfqmgmlcupuufxoohdfpgjdmysgvhmvffcnqxjjxqncffvmhvgsymdjgpfdhooxfuupuculmgmqfvnbgtapekouga"
     expect(validPalindrome(longString)).toBeTruthy();
     expect(validPalindrome("deeee")).toBeTruthy();
-    expect(validPalindrome('abc')).toBeTruthy();
+    expect(validPalindrome('abc')).toBeFalsy();
   });
 })
 
