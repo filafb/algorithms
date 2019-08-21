@@ -42,3 +42,4 @@ extra | Revert String Recursively
 08/08 | Valid Palindrome | 2️⃣ | ❌ | yes
 08/09 | Valid Palindrome | 3️⃣ | ✅ | no
 08/19 | Count Battleships | 1️⃣ | ✅ | yes
+08/21 | Majority Checker | 1️⃣ | ❌ | yes
