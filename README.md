@@ -44,3 +44,4 @@ extra | Revert String Recursively
 08/19 | Count Battleships | 1️⃣ | ✅ | yes
 08/21 | Majority Checker | 1️⃣ | ❌ | yes
 02/11/20 | Single Number | 1️⃣ | ✅ | no
+02/24/20 | Binary Gap | 1️⃣ | ✅ | no
