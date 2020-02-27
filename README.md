@@ -46,3 +46,4 @@ extra | Revert String Recursively
 02/11/20 | Single Number | 1️⃣ | ✅ | no
 02/24/20 | Binary Gap | 1️⃣ | ✅ | no
 02/25/20 | Cyclic Rotation | 1️⃣ | ✅ | no
+02/26/20 | Frog Jump | 1️⃣ | ✅ | no
