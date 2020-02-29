@@ -48,3 +48,4 @@ extra | Revert String Recursively
 02/25/20 | Cyclic Rotation | 1️⃣ | ✅ | no
 02/26/20 | Frog Jump | 1️⃣ | ✅ | no
 02/28/20 | missing Element | 1️⃣ | ✅ | no
+02/29/20 | Tape Equilibrium | 1️⃣ | ✅ | no
