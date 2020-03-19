@@ -16,7 +16,7 @@ function multiDimSumArrayRecursive(arr) {
 
   return sum
 }
-
+multiDimSumArrayRecursive([1,2,3])
 
 function multiDimSumArray(arr) {
   let arrCopy = [...arr]
