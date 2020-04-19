@@ -3,20 +3,16 @@
 */
 
 function multiDimSumArrayRecursive(arr) {
-
   let sum = 0
-
   for(let i = 0; i <arr.length; i++) {
-    if(Array.isArray(arr[i])) {
-      sum += multiDimSumArrayRecursive(arr[i])
-    } else {
+    if(typeof arr[i] === "number") {
       sum += arr[i]
+    } else {
+      sum += multiDimSumArrayRecursive(arr[i])
     }
   }
-
   return sum
 }
-multiDimSumArrayRecursive([1,2,3])
 
 function multiDimSumArray(arr) {
   let arrCopy = [...arr]
@@ -25,7 +21,7 @@ function multiDimSumArray(arr) {
   while(stack.length) {
     let element = stack.shift()
     if(Array.isArray(element)) {
-        stack = [...element, ...stack]
+      stack = [...element, ...stack]
     } else {
       sum += element
     }
