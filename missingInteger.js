@@ -37,3 +37,5 @@ function missingInteger (arr) {
   }
   return anchor
 }
+
+module.exports = missingInteger
