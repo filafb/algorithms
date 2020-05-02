@@ -12,7 +12,7 @@ function maxCounters(N,A) {
       if(counters[A[i]-1] > max) {
         max = counters[A[i]-1]
       }
-    } else if(A[i] === N + 1){
+    } else if(A[i] === N + 1) {
       counters.fill(max)
     }
   }
