@@ -51,3 +51,4 @@ extra | Revert String Recursively
 02/29/20 | Tape Equilibrium | 1️⃣ | ✅ | no
 03/01/20 | Frog River | 1️⃣ | ✅ | no
 03/15/20 | Permutation Check | 1️⃣ | ✅ | no
+06/8/20 | Genomic Range Query | 2️⃣ | ✅ | no
